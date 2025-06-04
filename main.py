@@ -180,12 +180,12 @@ async def list_users(client: Client, msg: Message):
 async def help_command(client: Client, msg: Message):
     help_text = (
         "`/start` - Start the bot⚡\n\n"
-        "`/tushar2` or `/uplaod2` - Download and upload files (sudo)🎬\n\n"
-        "`/restart2` - Restart the bot🔮\n\n" 
-        "`/stop2` - Stop ongoing process🛑\n\n"
+        "`/n` or `/u` - Download and upload files (sudo)🎬\n\n"
+        "`/r` - Restart the bot🔮\n\n" 
+        "`/s` - Stop ongoing process🛑\n\n"
         "`/sudo add` - Add user or group or channel (owner)🎊\n\n"
         "`/sudo remove` - Remove user or group or channel (owner)❌\n\n"
-        "`/userlist2` - List of sudo user or group or channel📜\n\n"  
+        "`/userlist` - List of sudo user or group or channel📜\n\n"  
     )
     await msg.reply_text(help_text)
 
