@@ -147,17 +147,17 @@ caption = (
 )
     
 # Start command handler
-@bot.on_message(filters.command(["start2"]))
+@bot.on_message(filters.command(["start"]))
 async def start_command(bot: Client, message: Message):
     await bot.send_photo(chat_id=message.chat.id, photo=random_image_url, caption=caption, reply_markup=keyboard)
     
 # Stop command handler
-@bot.on_message(filters.command("stop2"))
+@bot.on_message(filters.command("s"))
 async def restart_handler(_, m: Message):
     await m.reply_text("**𝗦𝘁𝗼𝗽𝗽𝗲𝗱**🚦", True)
     os.execl(sys.executable, sys.executable, *sys.argv)
 
-@bot.on_message(filters.command("restart2"))
+@bot.on_message(filters.command("r"))
 async def restart_handler(_, m):
     if not is_authorized(m.from_user.id):
         await m.reply_text("**🚫 You are not authorized to use this command.**")
@@ -166,7 +166,7 @@ async def restart_handler(_, m):
     os.execl(sys.executable, sys.executable, *sys.argv)
   
 # List users command
-@bot.on_message(filters.command("userlist2") & filters.user(SUDO_USERS))
+@bot.on_message(filters.command("userlist") & filters.user(SUDO_USERS))
 async def list_users(client: Client, msg: Message):
     if SUDO_USERS:
         users_list = "\n".join([f"User ID : `{user_id}`" for user_id in SUDO_USERS])
@@ -190,7 +190,7 @@ async def help_command(client: Client, msg: Message):
     await msg.reply_text(help_text)
 
 # Upload command handler
-@bot.on_message(filters.command(["tushar2","upload2"]))
+@bot.on_message(filters.command(["u","n"]))
 async def upload(bot: Client, m: Message):
     if not is_authorized(m.chat.id):
         await m.reply_text("**🚫You are not authorized to use this bot.**")
